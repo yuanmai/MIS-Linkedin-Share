@@ -16,6 +16,7 @@
 @synthesize postDescription = _postDescription;
 @synthesize postURL = _postURL;
 @synthesize postImageURL = _postImageURL;
+@synthesize delegate = _delegate;
 
 + (MISLinkedinShare *)sharedInstance
 {
@@ -27,6 +28,10 @@
 
 
 # pragma mark - Public Methods
+- (void) setDelegate:(id)delegate {
+	_delegate = delegate;
+}
+
 - (void) shareContent:(UIViewController *)viewController postTitle:(NSString*)aPostTitle postDescription:(NSString*)aPostDescription postURL:(NSString*)aPostURL postImageURL:(NSString*)aPostImageURL {
 	
 	_postTitle = aPostTitle;
@@ -102,6 +107,9 @@
 
 - (void)postUpdateApiCallResult:(OAServiceTicket *)ticket didFinish:(NSData *)data
 {
+    if(_delegate != nil){
+    	[_delegate shareCompleted];
+    }
     // The next thing we want to do is call the network updates
     NSLog(@"Sucess! %@",[data description]);
     

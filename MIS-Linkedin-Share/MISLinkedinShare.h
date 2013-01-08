@@ -19,6 +19,7 @@
 
 @interface MISLinkedinShare : NSObject
 
+@property (nonatomic, strong) id delegate;
 @property (nonatomic, strong) OAuthLoginView *oAuthLoginView;
 @property (nonatomic, strong) NSString *postTitle;
 @property (nonatomic, strong) NSString *postDescription;
@@ -28,7 +29,7 @@
 + (MISLinkedinShare *)sharedInstance;
 
 - (void) shareContent:(UIViewController *)viewController postTitle:(NSString*)aPostTitle postDescription:(NSString*)aPostDescription postURL:(NSString*)aPostURL postImageURL:(NSString*)aPostImageURL;
-
+- (void) setDelegate:(id)delegate;
 
 
 @end
