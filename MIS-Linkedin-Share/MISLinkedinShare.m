@@ -9,6 +9,7 @@
 
 #import "MISLinkedinShare.h"
 #import "OAMutableURLRequest.h"
+#import "ViewController.h"
 
 @implementation MISLinkedinShare
 @synthesize oAuthLoginView = _oAuthLoginView;

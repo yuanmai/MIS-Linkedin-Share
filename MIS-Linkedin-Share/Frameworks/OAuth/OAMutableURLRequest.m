@@ -150,6 +150,7 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
 		CFRelease(nonce);
 	}
     nonce = (NSString *)string;
+	CFRelease(theUUID);
 }
 
 - (NSString *)_signatureBaseString 

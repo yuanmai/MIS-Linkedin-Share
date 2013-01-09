@@ -47,6 +47,7 @@
     OARequestParameter *nameParam = [[OARequestParameter alloc] initWithName:@"scope"
                                                                        value:@"r_basicprofile+rw_nus"];
     NSArray *params = [NSArray arrayWithObjects:nameParam, nil];
+	[nameParam release];
     [request setParameters:params];
     OARequestParameter * scopeParameter=[OARequestParameter requestParameter:@"scope" value:@"r_fullprofile rw_nus"];
     
@@ -72,10 +73,10 @@
     if (ticket.didSucceed == NO) 
         return;
         
-    NSString *responseBody = [[NSString alloc] initWithData:data
-                                                   encoding:NSUTF8StringEncoding];
+    NSString *responseBody = [[[NSString alloc] initWithData:data
+                                                   encoding:NSUTF8StringEncoding] autorelease];
     self.requestToken = [[OAToken alloc] initWithHTTPResponseBody:responseBody];
-    [responseBody release];
+	
     [self allowUserToLogin];
 }
 

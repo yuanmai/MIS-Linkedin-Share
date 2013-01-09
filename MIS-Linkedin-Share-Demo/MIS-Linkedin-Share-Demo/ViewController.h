@@ -11,4 +11,5 @@
 @interface ViewController : UIViewController
 
 - (IBAction)share:(id)sender;
+-(void)shareCompleted;
 @end

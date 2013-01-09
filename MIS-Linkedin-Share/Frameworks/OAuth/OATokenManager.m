@@ -283,6 +283,7 @@
 {
 	OAToken *token = [[OAToken alloc] initWithHTTPResponseBody:body];
 	[self setAccessToken:token];
+	[token release];
 }
 
 - (void)renewToken {
@@ -368,7 +369,9 @@
 	[self enqueue:call selector:didFinish];
 	if (aDelegate) {
 		[delegates setObject:aDelegate forKey:[NSString stringWithFormat:@"%p", call]];
+		
 	}
+	[call release];
 	[self dispatch];
 }
 

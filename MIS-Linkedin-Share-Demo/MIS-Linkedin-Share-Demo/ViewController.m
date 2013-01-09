@@ -31,4 +31,9 @@
 	
 	[[MISLinkedinShare sharedInstance] shareContent:self postTitle:@"Title" postDescription:@"Description" postURL:@"www.google.com" postImageURL:@"http://www.google.com/images/errors/logo_sm.gif"];
 }
+
+- (void)shareCompleted
+{
+	NSLog(@"shareCompleted called");
+}
 @end
