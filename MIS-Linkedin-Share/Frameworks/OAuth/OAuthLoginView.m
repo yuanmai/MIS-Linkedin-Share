@@ -75,7 +75,7 @@
         
     NSString *responseBody = [[[NSString alloc] initWithData:data
                                                    encoding:NSUTF8StringEncoding] autorelease];
-    self.requestToken = [[OAToken alloc] initWithHTTPResponseBody:responseBody];
+    self.requestToken = [[[OAToken alloc] initWithHTTPResponseBody:responseBody]autorelease];
 	
     [self allowUserToLogin];
 }
@@ -218,7 +218,7 @@
     }
     else
     {
-        self.accessToken = [[OAToken alloc] initWithHTTPResponseBody:responseBody];
+        self.accessToken = [[[OAToken alloc] initWithHTTPResponseBody:responseBody]autorelease];
     }
     // Notify parent and close this view
     [[NSNotificationCenter defaultCenter] 
@@ -235,9 +235,9 @@
 //
 - (void)initLinkedInApi
 {
-    self.consumer = [[OAConsumer alloc] initWithKey:_apikey
+    self.consumer = [[[OAConsumer alloc] initWithKey:_apikey
                                         secret:_secretkey
-                                         realm:@"http://api.linkedin.com/"];
+                                         realm:@"http://api.linkedin.com/"] autorelease];
 
     requestTokenURLString = @"https://api.linkedin.com/uas/oauth/requestToken";
     accessTokenURLString = @"https://api.linkedin.com/uas/oauth/accessToken";

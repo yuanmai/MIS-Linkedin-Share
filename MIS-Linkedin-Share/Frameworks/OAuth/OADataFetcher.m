@@ -30,8 +30,10 @@
 @implementation OADataFetcher
 
 - (id)init {
-	[super init];
-	responseData = [[NSMutableData alloc] init];
+	self = [super init];
+	if(self) {
+		responseData = [[NSMutableData alloc] init];
+	}
 	return self;
 }
 

@@ -44,10 +44,10 @@
          callback:(NSString *)aCallback
 signatureProvider:(id<OASignatureProviding, NSObject>)aProvider 
 {
-    [super initWithURL:aUrl
+	self = [super initWithURL:aUrl
            cachePolicy:NSURLRequestReloadIgnoringCacheData
        timeoutInterval:10.0];
-    
+    if(!self) return self;
     consumer = aConsumer;
     
     // empty token for Unauthorized Request Token transaction
@@ -85,12 +85,12 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
             nonce:(NSString *)aNonce
         timestamp:(NSString *)aTimestamp 
 {
-    [self initWithURL:aUrl
+    self = [self initWithURL:aUrl
              consumer:aConsumer
                 token:aToken
              callback:nil
     signatureProvider:aProvider];
-    
+    if(!self) return self;
     nonce = [aNonce copy];
     timestamp = [aTimestamp copy];
     

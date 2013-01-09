@@ -98,6 +98,7 @@ static u_int8_t workspace[64];
     state[4] += e;
     /* Wipe variables */
     a = b = c = d = e = 0;
+	
 }
 
 

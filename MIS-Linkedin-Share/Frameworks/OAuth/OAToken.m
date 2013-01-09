@@ -61,7 +61,8 @@
           created:(NSDate *)creation
 		renewable:(BOOL)renew 
 {
-	[super init];
+	self = [super init];
+	if(!self) return self;
 	self.key = aKey;
 	self.secret = aSecret;
 	self.session = aSession;
@@ -150,7 +151,8 @@
 }
 
 - (id)initWithUserDefaultsUsingServiceProviderName:(const NSString *)provider prefix:(const NSString *)prefix {
-	[super init];
+	self = [super init];
+	if(!self) return self;
 	self.key = [OAToken loadSetting:@"key" provider:provider prefix:prefix];
 	self.secret = [OAToken loadSetting:@"secret" provider:provider prefix:prefix];
 	self.session = [OAToken loadSetting:@"session" provider:provider prefix:prefix];
